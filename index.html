@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌·為你 — 擁有屬於您的歌曲·真人填詞</title>
+  <meta name="description" content="擁有屬於您的歌曲·真人填詞 — 全粵語訂製歌曲平台。識講先識寫，英文同普通話做唔到嘅味道，只有我哋做得到。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f0d0b;
+      --card: #1a1714;
+      --card2: #211e1a;
+      --border: #2e2926;
+      --primary: hsl(340, 45%, 55%);
+      --primary-light: hsl(340, 45%, 65%);
+      --primary-glow: hsl(340, 45%, 55%, 0.35);
+      --fg: #f5f0eb;
+      --muted: #8a7f74;
+      --accent: #c9a96e;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', 'Noto Serif TC', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .serif { font-family: 'Playfair Display', 'Noto Serif TC', serif; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(15,13,11,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--fg);
+    }
+    .logo-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .logo-text { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; }
+    .logo-sub { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 14px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--fg); }
+
+    /* HERO */
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--primary-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 11px; letter-spacing: 0.2em; color: var(--muted);
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted); max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 999px;
+      font-size: 1.1rem; font-weight: 600;
+      padding: 18px 40px; cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 24px var(--primary-glow);
+      transition: all 0.2s;
+    }
+    .btn-hero:hover {
+      background: var(--primary-light);
+      box-shadow: 0 8px 36px var(--primary-glow);
+      transform: translateY(-1px);
+    }
+    .hero-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+    .hero-note em { font-style: italic; }
+    .stars { display: flex; justify-content: center; gap: 4px; margin: 28px 0 8px; }
+    .star { color: var(--primary); font-size: 18px; }
+    .social-proof {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      font-size: 14px; color: var(--muted);
+    }
+    .avatars { display: flex; }
+    .avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid var(--bg);
+      background: var(--card2);
+      margin-left: -8px;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--fg);
+    }
+    .avatar:first-child { margin-left: 0; }
+    .avatar-count {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--bg); margin-left: -8px;
+    }
+    .listen-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: none; border: none; color: var(--muted);
+      font-size: 14px; cursor: pointer; text-decoration: underline;
+      text-underline-offset: 4px; margin-top: 14px;
+      transition: color 0.2s;
+    }
+    .listen-btn:hover { color: var(--primary); }
+
+    /* DISCOUNT BANNER */
+    .discount-bar {
+      background: rgba(201,169,110,0.08);
+      border: 1px dashed rgba(201,169,110,0.4);
+      color: var(--accent);
+      font-size: 13px; font-weight: 600;
+      padding: 10px 20px; border-radius: 8px;
+      display: inline-block; margin-top: 20px;
+      letter-spacing: 0.3px;
+    }
+    .discount-bar code {
+      background: rgba(201,169,110,0.15);
+      padding: 2px 8px; border-radius: 4px;
+      font-family: monospace; letter-spacing: 2px;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 24px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-tight { max-width: 760px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 52px; }
+    .section-header h2 {
+      font-family: 'Playfair Display', 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+    .section-header p { color: var(--muted); font-size: 15px; max-width: 560px; margin: 0 auto; }
+
+    /* PROBLEM SECTION */
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .problem-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      position: relative; overflow: hidden;
+    }
+    .problem-card.highlight { border-color: rgba(176,83,110,0.4); background: rgba(176,83,110,0.05); }
+    .problem-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--border);
+    }
+    .problem-card.highlight::before { background: var(--primary); }
+    .problem-icon { font-size: 2rem; margin-bottom: 12px; }
+    .problem-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+    .problem-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .problem-card.highlight .problem-desc { color: var(--fg); }
+
+    /* LYRIC QUOTE */
+    .lyric-quote {
+      background: rgba(176,83,110,0.06);
+      border-left: 3px solid var(--primary);
+      padding: 16px 20px; border-radius: 0 12px 12px 0;
+      margin-top: 28px;
+      font-style: italic; font-size: 15px; line-height: 1.8; color: var(--fg);
+    }
+
+    /* HOW IT WORKS */
+    .how-bg { background: var(--card); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 48px; }
+    .step { text-align: center; }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(176,83,110,0.12);
+      color: var(--primary);
+      font-family: 'Playfair Display', serif; font-size: 1.8rem;
+      margin-bottom: 20px;
+      border: 1px solid rgba(176,83,110,0.2);
+    }
+    .step h3 {
+      font-family: 'Playfair Display', 'Noto Serif TC', serif;
+      font-size: 1.1rem; margin-bottom: 8px;
+    }
+    .step p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .center { text-align: center; }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 999px;
+      font-size: 1.05rem; font-weight: 600;
+      padding: 16px 36px; cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.2s;
+    }
+    .btn-cta:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+    /* SCENARIOS */
+    .scenarios { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .scenario-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      transition: all 0.2s; cursor: pointer;
+    }
+    .scenario-card:hover { border-color: var(--primary); background: var(--card); transform: translateY(-2px); }
+    .scenario-emoji { font-size: 2rem; margin-bottom: 10px; }
+    .scenario-title { font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+    .scenario-context { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .scenario-lyric {
+      font-size: 13px; color: var(--primary); font-style: italic;
+      background: rgba(176,83,110,0.08);
+      border-left: 2px solid var(--primary);
+      padding: 8px 12px; border-radius: 0 8px 8px 0;
+      line-height: 1.6;
+    }
+
+    /* STYLES */
+    .styles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .style-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; text-align: center;
+      transition: all 0.2s;
+    }
+    .style-card:hover { border-color: rgba(201,169,110,0.4); background: rgba(201,169,110,0.04); }
+    .style-card .icon { font-size: 2rem; margin-bottom: 8px; }
+    .style-card .name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+    .style-card .desc { font-size: 12px; color: var(--muted); }
+
+    /* TESTIMONIALS */
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .testimonial {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 20px; padding: 28px;
+    }
+    .testimonial .stars { justify-content: flex-start; margin: 0 0 16px; }
+    .testimonial blockquote {
+      color: var(--fg); font-size: 15px; line-height: 1.7;
+      margin-bottom: 20px; font-style: normal;
+    }
+    .testimonial .name { font-weight: 600; font-size: 14px; }
+    .testimonial .role { color: var(--muted); font-size: 13px; }
+
+    /* USE CASES */
+    .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 860px; margin: 0 auto 40px; }
+    .use-case {
+      display: flex; align-items: center; gap: 16px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px 24px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .use-case:hover { border-color: var(--primary); background: var(--card); }
+    .use-case-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(176,83,110,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .use-case h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .use-case p { font-size: 13px; color: var(--muted); }
+
+    /* PRICING */
+    .pricing-bg { background: var(--card); }
+    .pricing-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 24px; padding: 40px;
+      max-width: 420px; margin: 0 auto;
+      text-align: center;
+    }
+    .price-old { font-size: 1.2rem; color: var(--muted); text-decoration: line-through; margin-right: 12px; }
+    .price-new { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--fg); }
+    .badge {
+      display: inline-block;
+      background: rgba(176,83,110,0.15); color: var(--primary);
+      border-radius: 999px; padding: 4px 14px; font-size: 13px; font-weight: 500;
+      margin: 10px 0 28px;
+    }
+    .price-features { list-style: none; margin: 0 0 28px; text-align: left; }
+    .price-features li {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0; border-top: 1px solid var(--border);
+      font-size: 14px; color: var(--fg);
+    }
+    .price-features li .icon { color: var(--primary); font-size: 16px; }
+    .btn-pay {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; background: var(--primary); color: #fff;
+      border: none; border-radius: 999px;
+      font-size: 1.05rem; font-weight: 600;
+      padding: 16px; cursor: pointer;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.2s; margin-bottom: 16px;
+    }
+    .btn-pay:hover { background: var(--primary-light); }
+    .stripe-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; background: none; border: none; color: var(--fg);
+      font-size: 15px; font-weight: 500; text-align: left;
+      padding: 20px 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--primary); }
+    .faq-a {
+      color: var(--muted); font-size: 14px; line-height: 1.8;
+      max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 18px; }
+    .faq-arrow { font-size: 18px; transition: transform 0.3s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+    /* FOOTER */
+    footer {
+      background: var(--card); border-top: 1px solid var(--border);
+      padding: 40px 24px; text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 16px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--fg); }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+
+    /* BGM SECTION */
+    .bgm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+    .bgm-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      transition: all 0.2s;
+    }
+    .bgm-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .bgm-icon { font-size: 2rem; margin-bottom: 12px; }
+    .bgm-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+    .bgm-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .bgm-highlight {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+      margin-top: 8px;
+    }
+    .bgm-badge {
+      background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.3);
+      color: var(--accent); border-radius: 999px;
+      padding: 6px 16px; font-size: 13px; font-weight: 500;
+    }
+
+    /* AUDIO MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 24px; padding: 36px;
+      max-width: 440px; width: 100%; position: relative;
+    }
+    .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: none; border: none; color: var(--muted);
+      font-size: 22px; cursor: pointer;
+    }
+    .modal-close:hover { color: var(--fg); }
+    audio { width: 100%; margin-top: 8px; border-radius: 8px; }
+    .audio-note { font-size: 13px; color: var(--muted); margin-top: 12px; text-align: center; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 110px 20px 60px; }
+      section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🎵</div>
+      <div>
+        <div class="logo-text">廣東歌·為你</div>
+        <div class="logo-sub">Cantopop for you</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#why">點解揀我哋</a>
+      <a href="#occasions">送禮場合</a>
+      <a href="#how">點樣做</a>
+      <a href="#bgm">背景音樂</a>
+      <a href="#faq">常見問題</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">🇭🇰 香港人嘅歌 · 為你而寫</p>
+    <h1 class="serif">擁有屬於您的歌曲<br><span>真人填詞</span></h1>
+  <p class="hero-sub">
+    識講，先識寫。<br><br>
+    全粵語客製化音樂平台｜100% 香港班底<br><br>
+    我哋拒絕一切生硬翻譯。<br>
+    這裡只有最純正嘅廣東話語感、最地道嘅香港情懷。<br>
+    填詞、作曲、編曲一手包辦，為你手作獨一無二嘅廣東歌禮物。
+  </p>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <a href="create.html" class="btn-hero">🎵 立即訂製廣東歌</a>
+    <button class="listen-btn" onclick="document.getElementById('audioModal').classList.add('open')">
+      ▶ 試聽示範歌曲
+    </button>
+  </div>
+  <p class="hero-note">只需 2 分鐘 — 講低你嘅故事，我哋幫你寫成歌。</p>
+  <p class="hero-note"></p>
+  <div class="stars">
+    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+  </div>
+  <div class="social-proof">
+    <div class="avatars">
+      <div class="avatar" style="background:#5a3a4a">🙂</div>
+      <div class="avatar" style="background:#3a4a5a">😊</div>
+      <div class="avatar" style="background:#4a5a3a">🥰</div>
+      <div class="avatar" style="background:#5a4a3a">😄</div>
+      <div class="avatar-count">996+</div>
+    </div>
+    <span>超過 1,000 個香港人深愛呢份禮物</span>
+  </div>
+
+</section>
+
+<!-- PROBLEM SECTION -->
+<section id="why" style="background:var(--card)">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">英文平台？普通話平台？<br>但係我哋講緊<span style="color:var(--primary)">粵語</span>喎？</h2>
+      <p>想訂首歌送俾人，上網一搜，全部都係英文平台、普通話平台。勉強落單，收到嚟歌詞生硬、發音怪，仲要「你好嗎」「謝謝你」— 喂，我哋香港人唔係咁講嘢㗎！</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">🌐</div>
+        <div class="problem-title">英文平台</div>
+        <div class="problem-desc">翻譯失魂，地道粵語文化根本譯唔到。「打邊爐」「飲茶傾偈」點解釋？</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📲</div>
+        <div class="problem-title">普通話平台</div>
+        <div class="problem-desc">「你好嗎」「謝謝你」— 唔係我哋香港人嘅語氣，唱出嚟完全唔親切。</div>
+      </div>
+      <div class="problem-card highlight">
+        <div class="problem-icon">🎵</div>
+        <div class="problem-title">廣東歌·為你 ✓</div>
+        <div class="problem-desc">全粵語介面，本地音樂人，用你嘅故事、你嘅語氣、你嘅集體回憶寫成歌。</div>
+      </div>
+    </div>
+    <div class="lyric-quote">
+      「<strong>星期五晚放工去飲杯嘢</strong>」、「<strong>戴住耳機聽住歌漫步海旁</strong>」、「<strong>尖沙咀碼頭吹吹風</strong>」、<br>
+      「<strong>兩個人喺文青 Cafe hea 吓</strong>」、「<strong>一齊煲劇煲到朝早</strong>」—— <br>
+      呢啲係我哋嘅生活碎片，只有識粵語嘅人，先寫到出嚟，唱到入心！
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-bg" id="how">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">三步，一首屬於你嘅廣東歌</h2>
+      <p>一星期至半個月，交到你手</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>講低你嘅故事</h3>
+        <p>用粵語錄音或文字，講你同佢之間嘅故事、細節、笑位、暖心時刻。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>揀曲風</h3>
+        <p>曲風無限制，由 R&B、Synth-pop、City Pop，到熱血 Rock 甚至港式 Rap ——<br>你講得出的曲風，我哋都做得到。</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>收歌！</h3>
+        <p>地道粵語歌詞 + 精美歌詞卡，私人連結收歌，永久珍藏。</p>
+      </div>
+    </div>
+
+    <div class="center">
+      <a href="create.html" class="btn-cta">🎵 立即訂製廣東歌</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCENARIOS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">每個故事，都有獨一無二嘅廣東歌</h2>
+      <p>「你成日話我唔記得紀念日，但今年我記得喇」— 呢啲細節，英文同普通話點譯？</p>
+    </div>
+    <div class="scenarios">
+      <div class="scenario-card" onclick="location.href='create.html'">
+        <div class="scenario-emoji">🍵</div>
+        <div class="scenario-title">兄弟情</div>
+        <div class="scenario-context">茶餐廳聚舊，送首歌笑到噴奶茶</div>
+        <div class="scenario-lyric">「每次打邊爐你都搶我d牛柏葉」</div>
+      </div>
+      <div class="scenario-card" onclick="location.href='create.html'">
+        <div class="scenario-emoji">💕</div>
+        <div class="scenario-title">情侶紀念日</div>
+        <div class="scenario-context">又喊又笑，令人難忘嘅驚喜</div>
+        <div class="scenario-lyric">「你成日話我唔記得紀念日，但今年我記得喇」</div>
+      </div>
+      <div class="scenario-card" onclick="location.href='create.html'">
+        <div class="scenario-emoji">👩‍👦</div>
+        <div class="scenario-title">媽媽生日</div>
+        <div class="scenario-context">感動到阿媽都流眼淚</div>
+        <div class="scenario-lyric">「阿媽，我知你成日話我唔著多件衫，但我而家識照顧自己喇」</div>
+      </div>
+      <div class="scenario-card" onclick="location.href='create.html'">
+        <div class="scenario-emoji">🏢</div>
+        <div class="scenario-title">老闆退休</div>
+        <div class="scenario-context">全公司大笑，笑完有點感動</div>
+        <div class="scenario-lyric">「你成日話『唔好急，最緊要快』，我哋會記住」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--card)">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">最觸動人心嘅時刻</h2>
+      <p>香港人話俾香港人聽</p>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>「歌詞入面有我哋識咗嘅細節，佢一聽到就眼眶紅。呢份禮物冇得比！」</blockquote>
+        <p class="name">Kevin C.</p>
+        <p class="role">送俾女友紀念日</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>「阿媽第一日就播咗二十次，佢話係『自己嘅歌』。多謝廣東歌·為你！」</blockquote>
+        <p class="name">Mandy L.</p>
+        <p class="role">母親節禮物</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <blockquote>「搞笑Rap成首都係我哋公司嘅笑料，老細退休派對全場笑到喊！」</blockquote>
+        <p class="name">Thomas W.</p>
+        <p class="role">老闆退休禮物</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="occasions">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">每段故事都值得一首廣東歌</h2>
+      <p>揀一個啟發你訂製歌曲嘅場合</p>
+    </div>
+    <div class="use-cases">
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">❤️</div>
+        <div>
+          <h3>情侶 · 紀念日</h3>
+          <p>用廣東話表達你嘅愛意</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">👩‍👦</div>
+        <div>
+          <h3>送給父母</h3>
+          <p>感謝阿媽阿爸嘅付出</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">🍻</div>
+        <div>
+          <h3>兄弟姐妹</h3>
+          <p>多年情誼，用歌留住</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">🎂</div>
+        <div>
+          <h3>生日禮物</h3>
+          <p>令佢嘅生日難以忘懷</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">💍</div>
+        <div>
+          <h3>婚禮 · 求婚</h3>
+          <p>獻給最重要嘅一刻</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">🏢</div>
+        <div>
+          <h3>同事 · 老闆</h3>
+          <p>退休、離職，搵首歌送行</p>
+        </div>
+      </div>
+      <div class="use-case" onclick="location.href='create.html'">
+        <div class="use-case-icon">🕊️</div>
+        <div>
+          <h3>悼念追思</h3>
+          <p>紀念你深愛嘅人</p>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <a href="create.html" class="btn-cta">🎵 立即訂製廣東歌</a>
+    </div>
+  </div>
+</section>
+
+<!-- BGM SECTION -->
+<section id="bgm" style="background:var(--card)">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="serif">定製背景音樂</h2>
+      <p>免版權費 · 演出專用 · 香港原創</p>
+    </div>
+    <div class="bgm-grid">
+      <div class="bgm-card">
+        <div class="bgm-icon">🎭</div>
+        <div class="bgm-title">演出 / 舞台劇</div>
+        <div class="bgm-desc">為話劇、舞台演出、音樂劇度身訂製背景音樂，情緒到位，免版權煩惱。</div>
+      </div>
+      <div class="bgm-card">
+        <div class="bgm-icon">🎬</div>
+        <div class="bgm-title">短片 / 廣告</div>
+        <div class="bgm-desc">品牌短片、宣傳影片、社交媒體廣告，配上量身打造嘅背景音樂，更專業。</div>
+      </div>
+      <div class="bgm-card">
+        <div class="bgm-icon">🏪</div>
+        <div class="bgm-title">商業活動 / 展覽</div>
+        <div class="bgm-desc">開業派對、展覽會場、頒獎典禮，打造獨一無二嘅音樂氛圍。</div>
+      </div>
+      <div class="bgm-card">
+        <div class="bgm-icon">🎙️</div>
+        <div class="bgm-title">Podcast / 影片頻道</div>
+        <div class="bgm-desc">為你嘅創作內容配上專屬片頭片尾音樂，永久免版權使用。</div>
+      </div>
+    </div>
+    <div class="bgm-highlight">
+      <div class="bgm-badge">✅ 免版權費</div>
+      <div class="bgm-badge">✅ 永久授權</div>
+      <div class="bgm-badge">✅ 商業演出可用</div>
+      <div class="bgm-badge">✅ 香港本地音樂人</div>
+    </div>
+    <div class="center" style="margin-top:36px;">
+      <button class="btn-cta" onclick="document.getElementById('bgmModal').classList.add('open')">🎵 立即定制背景音樂 · 定價$700</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-bg">
+    <div class="section-header">
+      <h2 class="serif">簡單透明嘅定價</h2>
+      <p>無隱藏費用，唔滿意全額退款</p>
+    </div>
+    <div class="pricing-card">
+      <div>
+        <span class="price-old">$3999</span>
+        <span class="price-new serif">$1999</span>
+      </div>
+      <div class="badge">限時優惠 5折</div>
+      <ul class="price-features">
+        <li><span class="icon">✓</span> 100% 原創地道粵語歌詞</li>
+        <li><span class="icon">✓</span> 香港本地音樂人創作</li>
+        <li><span class="icon">✓</span> 專業歌手演繹錄音</li>
+        <li><span class="icon">✓</span> 一星期至半個月交歌</li>
+        <li><span class="icon">✓</span> 高品質 MP3 永久下載</li>
+        <li><span class="icon">✓</span> 精美歌詞卡附送</li>
+        <li><span class="icon">✓</span> 私人分享連結</li>
+        <li><span class="icon">✓</span> 唔滿意免費修改</li>
+      </ul>
+      <button class="btn-pay" onclick="location.href='create.html'">
+        🎵 立即訂製我嘅廣東歌
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container-tight">
+    <div class="section-header">
+      <h2 class="serif">你嘅疑問，我哋嚟解答</h2>
+      <p>關於訂製廣東歌嘅所有常見問題</p>
+    </div>
+    <div style="border-top:1px solid var(--border)">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          需要幾耐時間？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">一星期至半個月。完成後你會收到私人連結，可以即時下載及分享。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          如果唔滿意點算？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">我哋提供免費修改服務，直至你滿意為止。唔滿意亦可申請全額退款。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          歌詞一定係粵語嘅？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">係！我哋專做地道粵語歌詞，用香港人嘅語氣同口吻寫，絕對唔係英文或普通話翻譯過嚟嘅生硬歌詞。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          點樣收到同分享首歌？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">歌曲透過私人連結發送，你可以分享俾任何人。同時提供高品質 MP3 格式下載，永久保存。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          我嘅故事會保密嗎？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">完全保密。只有你選擇分享連結嘅人先聽到。我哋用心保護你嘅故事，絕不公開分享任何歌曲。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          付款安全嗎？
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">100% 安全。我哋使用 Stripe 付款系統，你嘅信用卡資料絕不會經過我哋嘅伺服器。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo serif">廣東歌·為你</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Cantopop for you</div>
+    <div class="footer-links">
+      <a href="#why">點解揀我哋</a>
+      <a href="#how">點樣做</a>
+      <a href="#occasions">送禮場合</a>
+      <a href="#bgm">背景音樂</a>
+      <a href="#pricing">價格</a>
+      <a href="#faq">常見問題</a>
+    </div>
+    <p class="footer-copy">© 2025 廣東歌·為你. 版權所有。🇭🇰 香港人 · 香港歌 · 為你而寫</p>
+  </div>
+</footer>
+
+<!-- BGM EMAIL MODAL -->
+<div class="modal-overlay" id="bgmModal" onclick="if(event.target===this)closeBgmModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeBgmModal()">✕</button>
+    <h3 class="serif">🎵 定制背景音樂 · $700</h3>
+    <p style="color:var(--muted);font-size:14px;margin:8px 0 24px;line-height:1.7;">留低你嘅電郵，我哋會盡快聯絡你，了解你嘅需要。</p>
+    <form id="bgmForm" onsubmit="submitBgmForm(event)">
+      <input type="email" id="bgmEmail" placeholder="你的電郵地址" required
+        style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);
+        background:var(--card);color:var(--fg);font-size:15px;margin-bottom:12px;outline:none;
+        transition:border 0.2s;"
+        onfocus="this.style.borderColor='var(--primary)'"
+        onblur="this.style.borderColor='var(--border)'">
+      <button type="submit" class="btn-pay" id="bgmSubmitBtn">📩 提交查詢</button>
+    </form>
+    <div id="bgmSuccess" style="display:none;text-align:center;padding:16px 0;">
+      <div style="font-size:2rem;margin-bottom:8px;">✅</div>
+      <p style="font-weight:600;margin-bottom:4px;">收到喇！</p>
+      <p style="color:var(--muted);font-size:14px;">我哋會盡快以電郵聯絡你。</p>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIO MODAL -->
+<div class="modal-overlay" id="audioModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('audioModal').classList.remove('open')">✕</button>
+    <h3 class="serif">🎵 試聽示範歌曲</h3>
+    <audio controls src="https://foreversongstudio.com/assets/the-way-you-smile-Db5C0qd2.mp3"></audio>
+    <p class="audio-note">呢首係我哋為一對情侶週年紀念所創作嘅真實訂製廣東歌。</p>
+  </div>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function closeBgmModal() {
+    document.getElementById('bgmModal').classList.remove('open');
+    // reset form for next open
+    document.getElementById('bgmForm').style.display = '';
+    document.getElementById('bgmSuccess').style.display = 'none';
+    document.getElementById('bgmEmail').value = '';
+  }
+
+  async function submitBgmForm(e) {
+    e.preventDefault();
+    const email = document.getElementById('bgmEmail').value;
+    const btn = document.getElementById('bgmSubmitBtn');
+    btn.textContent = '發送中...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('https://formspree.io/f/xkgwvzqd', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email, subject: '背景音樂查詢 $700', message: '查詢背景音樂定制服務' })
+      });
+      if (res.ok) {
+        document.getElementById('bgmForm').style.display = 'none';
+        document.getElementById('bgmSuccess').style.display = 'block';
+      } else {
+        btn.textContent = '出錯了，請重試';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = '出錯了，請重試';
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>

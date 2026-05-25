@@ -862,20 +862,27 @@
     const btn = document.getElementById('bgmSubmitBtn');
     btn.textContent = '發送中...';
     btn.disabled = true;
+    const payload = { email, _replyto: email, subject: '背景音樂查詢 $700', message: '查詢背景音樂定制服務' };
+    console.log('[Formspree] Submitting payload:', JSON.stringify(payload));
     try {
       const res = await fetch('https://formspree.io/f/mwvznjeq', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email, subject: '背景音樂查詢 $700', message: '查詢背景音樂定制服務' })
+        body: JSON.stringify(payload)
       });
-      if (res.ok) {
+      const data = await res.json();
+      console.log('[Formspree] Response status:', res.status, 'Body:', JSON.stringify(data));
+      if (res.ok && data.ok) {
+        console.log('[Formspree] Success!');
         document.getElementById('bgmForm').style.display = 'none';
         document.getElementById('bgmSuccess').style.display = 'block';
       } else {
-        btn.textContent = '出錯了，請重試';
+        console.error('[Formspree] Failed:', JSON.stringify(data));
+        btn.textContent = '出錯了，請重試 (' + res.status + ')';
         btn.disabled = false;
       }
-    } catch {
+    } catch(err) {
+      console.error('[Formspree] Exception:', err.message);
       btn.textContent = '出錯了，請重試';
       btn.disabled = false;
     }

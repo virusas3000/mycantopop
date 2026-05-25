@@ -456,22 +456,24 @@
   }
 
   function submitForm() {
-    // Send to FormSubmit → vickhung3000@hotmail.com
-    const form = new FormData();
-    form.append('_subject', '🎵 新廣東歌訂單 — 廣東歌·為你');
-    form.append('_template', 'table');
-    form.append('_captcha', 'false');
-    form.append('收禮人關係', state.recipient);
-    form.append('收禮人名字', state.recipientName);
-    form.append('特別之處', state.specialQualities);
-    form.append('珍貴回憶', state.memories);
-    form.append('氛圍', state.vibe);
-    form.append('音樂風格', state.genre);
-    form.append('聲線偏好', state.voice);
-    form.append('心底話', state.heartMessage);
-    form.append('客戶電郵', state.email);
-    fetch('https://formsubmit.co/vickhung3000@hotmail.com', {
-      method: 'POST', body: form
+    // Send to Formspree → mycantopophk@gmail.com
+    const payload = {
+      '_subject': '🎵 新廣東歌訂單 — 廣東歌·為你',
+      '收禮人關係': state.recipient,
+      '收禮人名字': state.recipientName,
+      '特別之處': state.specialQualities,
+      '珍貴回憶': state.memories,
+      '氛圍': state.vibe,
+      '音樂風格': state.genre,
+      '聲線偏好': state.voice,
+      '心底話': state.heartMessage,
+      '客戶電郵': state.email,
+      'email': state.email
+    };
+    fetch('https://formspree.io/f/mwvznjeq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
     }).finally(() => showSuccess());
   }
 

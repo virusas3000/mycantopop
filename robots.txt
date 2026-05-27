@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mycantopop.hk/sitemap.xml

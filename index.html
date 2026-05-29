@@ -472,11 +472,11 @@
   <div style="max-width:720px;margin:40px auto 0;width:100%;">
     <p style="text-align:center;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:24px;">🎵 試聽示範 · 加歌詞前後對比</p>
 
-    <!-- Lyrics card -->
+    <!-- SONG 1 -->
     <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:24px;line-height:2;text-align:center;font-size:14px;color:var(--fg);">
-      <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px;">示範歌詞</p>
-      <p style="margin-bottom:10px;">一起打波開show / 一起通宵爆機<br>每個笑點裡記載 / 四個靚仔<br>有過許多的故事 / 與你乾杯每次有我</p>
-      <p style="color:var(--primary);font-weight:500;">長途路遠 / 你我要去到幾遠路在面前 / 去到永遠<br>從來未怕 / 有你有我也不怕直面未來 / 勇氣滿載<br>從來未變 / 這個世界怎麼變情義未變</p>
+      <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px;">示範歌詞 — 愛情篇</p>
+      <p style="margin-bottom:10px;">每次問有誰要等 / 求相遇愛人憐憫 / 遠遠偷窺男神 / 脈搏跳動抖震<br>我臉上帶著微溫 / 一早被牽引靈魂 / 相交眼神就觸電 / 何解要強忍</p>
+      <p style="color:var(--primary);font-weight:500;">有秘密我想講 / 我願無條件落網 / 兩眼徘徊望你 / 碰面未懂說謊<br>拍拖新手情不自禁 / 無需隱藏 無需退讓<br>用我畢生的勇敢 / 尋覓方法 和你合襯 / 盼到斷腸 求為我解 心中癮</p>
     </div>
 
     <!-- Fancy players grid -->
@@ -526,6 +526,64 @@
           <button onclick="fpSkip('player-after',10)" class="fp-btn fp-skip">+10s</button>
         </div>
         <audio id="audio-after" src="/2.mp3" preload="metadata"></audio>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- SONG 2 -->
+  <div style="max-width:720px;margin:24px auto 0;width:100%;">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:24px;line-height:2;text-align:center;font-size:14px;color:var(--fg);">
+      <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px;">示範歌詞 — 友情篇</p>
+      <p style="margin-bottom:10px;">一起打波開show / 一起通宵爆機<br>每個笑點裡記載 / 四個靚仔<br>有過許多的故事 / 與你乾杯每次有我</p>
+      <p style="color:var(--primary);font-weight:500;">長途路遠 / 你我要去到幾遠路在面前 / 去到永遠<br>從來未怕 / 有你有我也不怕直面未來 / 勇氣滿載<br>從來未變 / 這個世界怎麼變情義未變</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+      <!-- Player: Song2 Before -->
+      <div class="fancy-player" id="player-before2" data-src="/3.mp3">
+        <div class="fp-label">加歌詞前</div>
+        <div class="fp-icon">🎼</div>
+        <div class="fp-title">原曲 Demo</div>
+        <div class="fp-progress-wrap" onclick="fpSeek(event,'player-before2')">
+          <div class="fp-progress-bar">
+            <div class="fp-progress-fill" id="fill-before2"></div>
+            <div class="fp-progress-thumb" id="thumb-before2"></div>
+          </div>
+        </div>
+        <div class="fp-time-row">
+          <span id="cur-before2">0:00</span>
+          <span id="dur-before2">--:--</span>
+        </div>
+        <div class="fp-controls">
+          <button onclick="fpSkip('player-before2',-10)" class="fp-btn fp-skip">−10s</button>
+          <button onclick="fpToggle('player-before2')" class="fp-btn fp-play" id="playbtn-before2">▶</button>
+          <button onclick="fpSkip('player-before2',10)" class="fp-btn fp-skip">+10s</button>
+        </div>
+        <audio id="audio-before2" src="/3.mp3" preload="metadata"></audio>
+      </div>
+
+      <!-- Player: Song2 After -->
+      <div class="fancy-player fp-active" id="player-after2" data-src="/4.mp3">
+        <div class="fp-label fp-label-after">加歌詞後 ✨</div>
+        <div class="fp-icon">🎵</div>
+        <div class="fp-title">加詞版本</div>
+        <div class="fp-progress-wrap" onclick="fpSeek(event,'player-after2')">
+          <div class="fp-progress-bar">
+            <div class="fp-progress-fill" id="fill-after2"></div>
+            <div class="fp-progress-thumb" id="thumb-after2"></div>
+          </div>
+        </div>
+        <div class="fp-time-row">
+          <span id="cur-after2">0:00</span>
+          <span id="dur-after2">--:--</span>
+        </div>
+        <div class="fp-controls">
+          <button onclick="fpSkip('player-after2',-10)" class="fp-btn fp-skip">−10s</button>
+          <button onclick="fpToggle('player-after2')" class="fp-btn fp-play fp-play-primary" id="playbtn-after2">▶</button>
+          <button onclick="fpSkip('player-after2',10)" class="fp-btn fp-skip">+10s</button>
+        </div>
+        <audio id="audio-after2" src="/4.mp3" preload="metadata"></audio>
       </div>
 
     </div>
@@ -629,7 +687,7 @@
 
   <script>
     (function(){
-      var players = ['before','after'];
+      var players = ['before','after','before2','after2'];
       players.forEach(function(id){
         var audio = document.getElementById('audio-'+id);
         audio.addEventListener('timeupdate', function(){

@@ -471,24 +471,222 @@
   <!-- BEFORE / AFTER INLINE DEMO -->
   <div style="max-width:720px;margin:40px auto 0;width:100%;">
     <p style="text-align:center;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:24px;">🎵 試聽示範 · 加歌詞前後對比</p>
+
+    <!-- Lyrics card -->
     <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:24px;line-height:2;text-align:center;font-size:14px;color:var(--fg);">
       <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px;">示範歌詞</p>
-      <p>每次問有誰要等 / 求相遇愛人憐憫 / 遠遠偷窺男神 / 脈搏跳動抖震<br>我臉上帶著微溫 / 一早被牽引靈魂 / 相交眼神就觸電 / 何解要強忍</p>
-      <p style="margin-top:12px;">有秘密我想講 / 我願無條件落網 / 兩眼徘徊望你 / 碰面未懂說謊<br>拍拖新手情不自禁 / 無需隱藏 無需退讓<br>用我畢生的勇敢 / 尋覓方法 和你合襯 / 盼到斷腸 求為我解 心中癮</p>
+      <p style="margin-bottom:10px;">一起打波開show / 一起通宵爆機<br>每個笑點裡記載 / 四個靚仔<br>有過許多的故事 / 與你乾杯每次有我</p>
+      <p style="color:var(--primary);font-weight:500;">長途路遠 / 你我要去到幾遠路在面前 / 去到永遠<br>從來未怕 / 有你有我也不怕直面未來 / 勇氣滿載<br>從來未變 / 這個世界怎麼變情義未變</p>
     </div>
+
+    <!-- Fancy players grid -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div style="background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;">
-        <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:10px;">加歌詞前</p>
-        <p style="font-size:22px;margin-bottom:12px;">🎼</p>
-        <audio controls style="width:100%;accent-color:var(--primary);" src="/1.mp3"></audio>
+
+      <!-- Player: Before -->
+      <div class="fancy-player" id="player-before" data-src="/1.mp3">
+        <div class="fp-label">加歌詞前</div>
+        <div class="fp-icon">🎼</div>
+        <div class="fp-title">原曲 Demo</div>
+        <div class="fp-progress-wrap" onclick="fpSeek(event,'player-before')">
+          <div class="fp-progress-bar">
+            <div class="fp-progress-fill" id="fill-before"></div>
+            <div class="fp-progress-thumb" id="thumb-before"></div>
+          </div>
+        </div>
+        <div class="fp-time-row">
+          <span id="cur-before">0:00</span>
+          <span id="dur-before">--:--</span>
+        </div>
+        <div class="fp-controls">
+          <button onclick="fpSkip('player-before',-10)" class="fp-btn fp-skip">−10s</button>
+          <button onclick="fpToggle('player-before')" class="fp-btn fp-play" id="playbtn-before">▶</button>
+          <button onclick="fpSkip('player-before',10)" class="fp-btn fp-skip">+10s</button>
+        </div>
+        <audio id="audio-before" src="/1.mp3" preload="metadata"></audio>
       </div>
-      <div style="background:rgba(255,255,255,0.04);border:1px solid var(--primary);border-radius:14px;padding:20px;text-align:center;">
-        <p style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--primary);margin-bottom:10px;">加歌詞後 ✨</p>
-        <p style="font-size:22px;margin-bottom:12px;">🎵</p>
-        <audio controls style="width:100%;accent-color:var(--primary);" src="/2.mp3"></audio>
+
+      <!-- Player: After -->
+      <div class="fancy-player fp-active" id="player-after" data-src="/2.mp3">
+        <div class="fp-label fp-label-after">加歌詞後 ✨</div>
+        <div class="fp-icon">🎵</div>
+        <div class="fp-title">加詞版本</div>
+        <div class="fp-progress-wrap" onclick="fpSeek(event,'player-after')">
+          <div class="fp-progress-bar">
+            <div class="fp-progress-fill" id="fill-after"></div>
+            <div class="fp-progress-thumb" id="thumb-after"></div>
+          </div>
+        </div>
+        <div class="fp-time-row">
+          <span id="cur-after">0:00</span>
+          <span id="dur-after">--:--</span>
+        </div>
+        <div class="fp-controls">
+          <button onclick="fpSkip('player-after',-10)" class="fp-btn fp-skip">−10s</button>
+          <button onclick="fpToggle('player-after')" class="fp-btn fp-play fp-play-primary" id="playbtn-after">▶</button>
+          <button onclick="fpSkip('player-after',10)" class="fp-btn fp-skip">+10s</button>
+        </div>
+        <audio id="audio-after" src="/2.mp3" preload="metadata"></audio>
       </div>
+
     </div>
   </div>
+
+  <style>
+    .fancy-player {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 18px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: border-color .3s;
+    }
+    .fancy-player.fp-active {
+      border-color: var(--primary);
+      background: rgba(255,150,150,0.06);
+    }
+    .fp-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+    .fp-label-after { color: var(--primary); }
+    .fp-icon { font-size: 26px; }
+    .fp-title { font-size: 12px; color: var(--muted); margin-top: -4px; }
+    .fp-progress-wrap {
+      width: 100%;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+    .fp-progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 2px;
+      position: relative;
+    }
+    .fp-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width .2s linear;
+    }
+    .fp-active .fp-progress-fill { background: var(--primary); }
+    .fp-progress-thumb {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0,0,0,.4);
+      transition: left .2s linear;
+    }
+    .fp-time-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: -4px;
+    }
+    .fp-controls { display: flex; gap: 10px; align-items: center; margin-top: 2px; }
+    .fp-btn {
+      background: rgba(255,255,255,0.08);
+      border: none;
+      border-radius: 20px;
+      color: var(--fg);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 6px 12px;
+      transition: background .2s;
+    }
+    .fp-btn:hover { background: rgba(255,255,255,0.18); }
+    .fp-play {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: rgba(255,255,255,0.15);
+    }
+    .fp-play-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .fp-play-primary:hover { background: var(--primary-dark, #c0404a); }
+  </style>
+
+  <script>
+    (function(){
+      var players = ['before','after'];
+      players.forEach(function(id){
+        var audio = document.getElementById('audio-'+id);
+        audio.addEventListener('timeupdate', function(){
+          if(!audio.duration) return;
+          var pct = (audio.currentTime / audio.duration) * 100;
+          document.getElementById('fill-'+id).style.width = pct+'%';
+          document.getElementById('thumb-'+id).style.left = pct+'%';
+          document.getElementById('cur-'+id).textContent = fmtTime(audio.currentTime);
+        });
+        audio.addEventListener('loadedmetadata', function(){
+          document.getElementById('dur-'+id).textContent = fmtTime(audio.duration);
+        });
+        audio.addEventListener('ended', function(){
+          document.getElementById('playbtn-'+id).textContent = '▶';
+        });
+      });
+
+      window.fpToggle = function(pid){
+        var id = pid.replace('player-','');
+        var audio = document.getElementById('audio-'+id);
+        var btn = document.getElementById('playbtn-'+id);
+        // pause others
+        players.forEach(function(oid){
+          if(oid !== id){
+            var oa = document.getElementById('audio-'+oid);
+            oa.pause();
+            document.getElementById('playbtn-'+oid).textContent = '▶';
+          }
+        });
+        if(audio.paused){ audio.play(); btn.textContent = '⏸'; }
+        else { audio.pause(); btn.textContent = '▶'; }
+      };
+
+      window.fpSkip = function(pid, secs){
+        var id = pid.replace('player-','');
+        var audio = document.getElementById('audio-'+id);
+        audio.currentTime = Math.max(0, Math.min(audio.duration||0, audio.currentTime + secs));
+      };
+
+      window.fpSeek = function(e, pid){
+        var id = pid.replace('player-','');
+        var audio = document.getElementById('audio-'+id);
+        if(!audio.duration) return;
+        var bar = e.currentTarget.querySelector('.fp-progress-bar');
+        var rect = bar.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pct * audio.duration;
+      };
+
+      function fmtTime(s){
+        if(isNaN(s)) return '--:--';
+        var m = Math.floor(s/60);
+        var sec = Math.floor(s%60);
+        return m+':'+(sec<10?'0':'')+sec;
+      }
+    })();
+  </script>
   <p class="hero-note"></p>
   <div class="stars">
     <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>

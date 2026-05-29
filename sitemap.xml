@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mycantopop.hk/</loc><priority>1.0</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/create.html</loc><priority>0.8</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/</loc><priority>0.8</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/anniversary-gift-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/mothers-day-cantonese-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/wedding-proposal-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/birthday-gift-cantonese-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/boss-retirement-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/friendship-cantonese-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/custom-bgm-hong-kong.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/cantonese-vs-mandarin-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/memorial-tribute-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
-  <url><loc>https://mycantopop.hk/articles/colleague-farewell-song.html</loc><priority>0.7</priority><changefreq>weekly</changefreq><lastmod>2025-06-01</lastmod></url>
+  <url>
+    <loc>https://mycantopop.hk/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://mycantopop.hk/create.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

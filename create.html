@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>訂製你嘅廣東歌 — 廣東歌·為你</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340,45%,55%); --primary-light: hsl(340,45%,65%);
+      --primary-glow: rgba(176,83,110,0.3);
+      --fg: #f5f0eb; --muted: #8a7f74;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; min-height: 100vh; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(15,13,11,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner {
+      max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 17px; font-weight: 700; }
+    .header-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--muted);
+    }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* PROGRESS */
+    .progress-bar {
+      height: 3px; background: var(--border);
+      transition: width 0.4s ease;
+    }
+    .progress-fill { height: 100%; background: var(--primary); transition: width 0.4s ease; }
+
+    /* MAIN */
+    main { padding-top: 80px; padding-bottom: 60px; }
+    .step-wrap {
+      max-width: 560px; margin: 0 auto; padding: 32px 24px;
+    }
+
+    /* STEP HEADER */
+    .step-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(176,83,110,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin: 0 auto 16px;
+    }
+    .step-title {
+      font-family: 'Playfair Display','Noto Serif TC',serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      text-align: center; margin-bottom: 8px;
+    }
+    .step-sub { color: var(--muted); font-size: 14px; text-align: center; margin-bottom: 28px; line-height: 1.6; }
+
+    /* GRID BUTTONS */
+    .option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+    .option-grid.cols2 { grid-template-columns: repeat(2, 1fr); }
+    .opt-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      padding: 14px 10px; border-radius: 14px;
+      border: 1.5px solid var(--border);
+      background: none; color: var(--fg);
+      cursor: pointer; font-size: 13px; font-weight: 500;
+      transition: all 0.18s; min-height: 76px; justify-content: center;
+    }
+    .opt-btn:hover { border-color: var(--primary); background: rgba(176,83,110,0.06); }
+    .opt-btn.active { border-color: var(--primary); background: rgba(176,83,110,0.1); color: var(--primary); }
+    .opt-emoji { font-size: 22px; }
+
+    /* INPUTS */
+    .field { margin-bottom: 18px; }
+    .field label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 7px; }
+    .field input, .field textarea, .field select {
+      width: 100%; background: var(--card2);
+      border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 13px 16px; color: var(--fg); font-size: 15px;
+      outline: none; transition: border-color 0.2s;
+      font-family: 'Inter','Noto Serif TC',sans-serif;
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--primary); }
+    .field textarea { resize: vertical; line-height: 1.7; min-height: 150px; }
+    .field .hint { font-size: 12px; color: var(--muted); margin-top: 6px; display: flex; justify-content: space-between; }
+    .field .error { font-size: 12px; color: #f87171; margin-top: 5px; }
+
+    /* TIPS CARD */
+    .tips-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 18px; margin-bottom: 24px;
+    }
+    .tips-card p { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+    .tips-card ul { list-style: none; }
+    .tips-card li { font-size: 13px; color: var(--muted); padding: 2px 0; }
+
+    /* CHECKBOX */
+    .checkbox-row {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .checkbox-row input[type=checkbox] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--primary); cursor: pointer; flex-shrink: 0; }
+    .checkbox-row label { font-size: 13px; color: var(--muted); line-height: 1.6; cursor: pointer; }
+    .checkbox-row a { color: var(--primary); }
+
+    /* BUTTONS */
+    .btn-row { display: flex; gap: 12px; }
+    .btn-back {
+      display: flex; align-items: center; gap: 6px;
+      background: none; border: 1.5px solid var(--border);
+      border-radius: 999px; color: var(--muted);
+      font-size: 14px; font-weight: 500;
+      padding: 12px 22px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { border-color: var(--fg); color: var(--fg); }
+    .btn-next {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--primary); color: #fff;
+      border: none; border-radius: 999px;
+      font-size: 15px; font-weight: 600;
+      padding: 14px 28px; cursor: pointer;
+      box-shadow: 0 4px 20px var(--primary-glow);
+      transition: all 0.2s;
+    }
+    .btn-next:hover:not(:disabled) { background: var(--primary-light); transform: translateY(-1px); }
+    .btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    /* SUCCESS / CONFIRMATION */
+    .success-wrap { text-align: center; padding: 40px 24px; }
+    .success-icon { font-size: 64px; margin-bottom: 20px; }
+    .success-title { font-family:'Playfair Display',serif; font-size: 2rem; margin-bottom: 12px; }
+    .success-sub { color: var(--muted); font-size: 15px; line-height: 1.8; max-width: 420px; margin: 0 auto 32px; }
+    .progress-steps {
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 320px; margin: 0 auto 32px; text-align: left;
+    }
+    .prog-step {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; border-radius: 12px;
+      background: var(--card2); border: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .prog-step.done { color: #4ade80; border-color: rgba(74,222,128,0.2); }
+    .prog-step.active { color: var(--primary); border-color: var(--primary); }
+    .prog-step.pending { color: var(--muted); }
+    .prog-icon { font-size: 18px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🎵</div>
+      <div><div class="logo-text">廣東歌·為你</div><div style="font-size:10px;color:#8a7f74;letter-spacing:1px;">Cantopop for you</div></div>
+    </a>
+    <div class="header-badge">
+      <div class="badge-dot"></div>
+      正在為您創作中...
+    </div>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width:16%"></div>
+  </div>
+</header>
+
+<main>
+  <!-- STEP 1: Who is the song for? -->
+  <div class="step-wrap" id="step1">
+    <div class="step-icon">🎁</div>
+    <h2 class="step-title serif">這首歌是送給誰的？</h2>
+    <p class="step-sub">告訴我他們的名字 — 我會確保歌詞中融入他們的名字</p>
+
+    <div class="field">
+      <label>他/她是您的...</label>
+      <div class="option-grid">
+        <button class="opt-btn" data-val="partner" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">❤️</span>伴侶
+        </button>
+        <button class="opt-btn" data-val="child" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">🍼</span>孩子
+        </button>
+        <button class="opt-btn" data-val="parent" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">🙏</span>父母
+        </button>
+        <button class="opt-btn" data-val="friend" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">🤝</span>朋友
+        </button>
+        <button class="opt-btn" data-val="myself" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">🙂</span>自己
+        </button>
+        <button class="opt-btn" data-val="other" onclick="selectOpt(this,'recipient')">
+          <span class="opt-emoji">✨</span>其他人
+        </button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>他/她叫什麼名字？</label>
+      <input type="text" id="recipientName" placeholder="輸入名字..." oninput="checkStep1()" />
+      <div class="hint"><span>名字將融入歌詞中</span></div>
+      <div class="error" id="nameError"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-next" id="step1Next" onclick="goStep(2)" disabled>繼續 →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Special qualities -->
+  <div class="step-wrap" id="step2" style="display:none">
+    <div class="step-icon">🌟</div>
+    <h2 class="step-title serif">是什麼讓 <span id="nameDisplay2">他/她</span> 如此特別？</h2>
+    <p class="step-sub">他/她最好的特質、小習慣，以及您喜歡他/她的地方</p>
+
+    <div class="field">
+      <textarea id="specialQualities" placeholder="描述是什麼讓他/她與眾不同...
+
+例如：
+• 他/她那有感染力的笑聲
+• 總是知道說什麼讓我好受
+• 在廚房裡唱歌的樣子
+• 無論多忙都不忘關心身邊的人" oninput="checkStep2()"></textarea>
+      <div class="hint">
+        <span>細節越多，歌曲越個人化</span>
+        <span id="sq-count">0 字</span>
+      </div>
+      <div class="error" id="sqError"></div>
+    </div>
+
+    <div class="tips-card">
+      <p>💡 可以包含：</p>
+      <ul>
+        <li>• 定義他/她的性格特質</li>
+        <li>• 讓您微笑的習慣或癖好</li>
+        <li>• 他/她對您或他人的影響</li>
+      </ul>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(1)">← 返回</button>
+      <button class="btn-next" id="step2Next" onclick="goStep(3)" disabled>繼續 →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Memories -->
+  <div class="step-wrap" id="step3" style="display:none">
+    <div class="step-icon">💭</div>
+    <h2 class="step-title serif">分享一段珍貴的回憶</h2>
+    <p class="step-sub">一個特別的故事、一個難忘的時刻，或您們在一起的某個片段</p>
+
+    <div class="field">
+      <textarea id="memories" placeholder="分享您們之間的故事...
+
+例如：
+• 我們第一次見面時...
+• 那個我永遠不會忘記的夜晚...
+• 每年生日他/她總會..." oninput="checkStep3()"></textarea>
+      <div class="hint">
+        <span>這些回憶將成為歌詞的靈感</span>
+        <span id="mem-count">0 字</span>
+      </div>
+    </div>
+
+    <div class="tips-card">
+      <p>💡 回憶提示：</p>
+      <ul>
+        <li>• 你們如何相識？</li>
+        <li>• 有哪些只有你們懂的內部笑話？</li>
+        <li>• 哪個時刻讓您意識到他/她有多特別？</li>
+      </ul>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(2)">← 返回</button>
+      <button class="btn-next" id="step3Next" onclick="goStep(4)" disabled>繼續 →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Vibe & Genre -->
+  <div class="step-wrap" id="step4" style="display:none">
+    <div class="step-icon">🎶</div>
+    <h2 class="step-title serif">選擇歌曲的感覺與風格</h2>
+    <p class="step-sub">這首歌應該帶給他/她什麼感受？</p>
+
+    <div class="field">
+      <label>選擇氛圍</label>
+      <div class="option-grid">
+        <button class="opt-btn" data-val="sweet" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">🥰</span>溫馨甜蜜</button>
+        <button class="opt-btn" data-val="emotional" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">🥹</span>感人至深</button>
+        <button class="opt-btn" data-val="funny" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">😂</span>輕鬆幽默</button>
+        <button class="opt-btn" data-val="hype" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">🎉</span>歡樂振奮</button>
+        <button class="opt-btn" data-val="calm" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">😌</span>平靜舒緩</button>
+        <button class="opt-btn" data-val="romantic" onclick="selectOpt(this,'vibe')"><span class="opt-emoji">💕</span>浪漫深情</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>選擇音樂風格</label>
+      <div class="option-grid">
+        <button class="opt-btn" data-val="pop" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🎤</span>流行</button>
+        <button class="opt-btn" data-val="country" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🤠</span>鄉村</button>
+        <button class="opt-btn" data-val="rock" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🎸</span>搖滾</button>
+        <button class="opt-btn" data-val="rnb" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🎷</span>R&B</button>
+        <button class="opt-btn" data-val="acoustic" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🪗</span>木結他</button>
+        <button class="opt-btn" data-val="lullaby" onclick="selectOpt(this,'genre')"><span class="opt-emoji">🌙</span>搖籃曲</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>歌手聲線偏好</label>
+      <div class="option-grid cols2">
+        <button class="opt-btn" data-val="female" onclick="selectOpt(this,'voice')"><span class="opt-emoji">👩</span>女聲</button>
+        <button class="opt-btn" data-val="male" onclick="selectOpt(this,'voice')"><span class="opt-emoji">👨</span>男聲</button>
+        <button class="opt-btn active" data-val="no_preference" onclick="selectOpt(this,'voice')"><span class="opt-emoji">🎵</span>無偏好</button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(3)">← 返回</button>
+      <button class="btn-next" id="step4Next" onclick="goStep(5)" disabled>繼續 →</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Heart message + email -->
+  <div class="step-wrap" id="step5" style="display:none">
+    <div class="step-icon">💌</div>
+    <h2 class="step-title serif">來自心底的話</h2>
+    <p class="step-sub">您希望 <span id="nameDisplay5">他/她</span> 聽到這首歌時有什麼感受？</p>
+
+    <div class="field">
+      <textarea id="heartMessage" placeholder="您想傳遞什麼訊息？
+
+例如：
+• 「我想讓她知道她是我生命中最美好的事」
+• 「我希望他聽到這首歌時，能感受到我有多愛他」" oninput="checkStep5()"></textarea>
+      <div class="hint">
+        <span>這將塑造歌曲的情感核心</span>
+        <span id="hm-count">0 字</span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>📧 您的電郵地址</label>
+      <input type="email" id="email" placeholder="you@example.com" oninput="checkStep5()" />
+      <div class="hint"><span>歌曲完成後將發送至此電郵</span></div>
+    </div>
+
+    <label class="checkbox-row">
+      <input type="checkbox" id="terms" onchange="checkStep5()" />
+      <label for="terms">我同意 <a href="#">服務條款</a> 及 <a href="#">私隱政策</a>。下載歌曲即代表接受最終產品。</label>
+    </label>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(4)">← 返回</button>
+      <button class="btn-next" id="step5Next" onclick="submitForm()" disabled>🎵 確認訂購 — $1999</button>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="step-wrap" id="stepSuccess" style="display:none">
+    <div class="success-wrap">
+      <div class="success-icon">🎉</div>
+      <h2 class="success-title serif">您的歌曲正在創作中！</h2>
+      <p class="success-sub">感謝您的訂購。我們的團隊已收到您的故事，正在用心為您打造這首獨一無二的歌曲。請留意電郵！</p>
+
+      <div class="progress-steps">
+        <div class="prog-step done"><span class="prog-icon">✅</span> 資料已收到</div>
+        <div class="prog-step done"><span class="prog-icon">✍️</span> 填寫歌詞中</div>
+        <div class="prog-step active"><span class="prog-icon">🎵</span> 創作歌曲中...</div>
+        <div class="prog-step pending"><span class="prog-icon">🔍</span> 最終審核</div>
+        <div class="prog-step pending"><span class="prog-icon">📬</span> 發送給您</div>
+      </div>
+
+      <p style="color:var(--muted);font-size:13px">預計在 <strong style="color:var(--fg)">24 小時內</strong> 送達您的電郵 ❤️</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  const state = {
+    recipient: '', recipientName: '',
+    specialQualities: '', memories: '',
+    vibe: '', genre: '', voice: 'no_preference',
+    heartMessage: '', email: '', terms: false
+  };
+
+  const TOTAL_STEPS = 5;
+
+  function goStep(n) {
+    for(let i=1;i<=TOTAL_STEPS;i++) {
+      const el = document.getElementById('step'+i);
+      if(el) el.style.display = i===n ? 'block' : 'none';
+    }
+    document.getElementById('stepSuccess').style.display = 'none';
+    const pct = Math.round((n-1)/TOTAL_STEPS*100);
+    document.getElementById('progressFill').style.width = pct+'%';
+    window.scrollTo({top:0,behavior:'smooth'});
+    // Update name displays
+    const name = state.recipientName || '他/她';
+    document.querySelectorAll('[id^=nameDisplay]').forEach(el => el.textContent = name);
+  }
+
+  function selectOpt(btn, group) {
+    const grid = btn.closest('.option-grid');
+    grid.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state[group] = btn.dataset.val;
+    checkStep1(); checkStep4();
+  }
+
+  function checkStep1() {
+    const name = document.getElementById('recipientName').value.trim();
+    state.recipientName = name;
+    document.getElementById('step1Next').disabled = !(name.length >= 2 && state.recipient);
+  }
+
+  function checkStep2() {
+    const val = document.getElementById('specialQualities').value;
+    state.specialQualities = val;
+    document.getElementById('sq-count').textContent = val.trim().length + ' 字';
+    document.getElementById('step2Next').disabled = val.trim().length < 20;
+  }
+
+  function checkStep3() {
+    const val = document.getElementById('memories').value;
+    state.memories = val;
+    document.getElementById('mem-count').textContent = val.trim().length + ' 字';
+    document.getElementById('step3Next').disabled = val.trim().length < 10;
+  }
+
+  function checkStep4() {
+    document.getElementById('step4Next').disabled = !(state.vibe && state.genre);
+  }
+
+  function checkStep5() {
+    const hm = document.getElementById('heartMessage').value;
+    const email = document.getElementById('email').value;
+    const terms = document.getElementById('terms').checked;
+    state.heartMessage = hm; state.email = email; state.terms = terms;
+    document.getElementById('hm-count').textContent = hm.trim().length + ' 字';
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    document.getElementById('step5Next').disabled = !(hm.trim().length >= 10 && emailOk && terms);
+  }
+
+  function submitForm() {
+    // Send to Formspree → mycantopophk@gmail.com
+    const payload = {
+      '_subject': '🎵 新廣東歌訂單 — 廣東歌·為你',
+      '收禮人關係': state.recipient,
+      '收禮人名字': state.recipientName,
+      '特別之處': state.specialQualities,
+      '珍貴回憶': state.memories,
+      '氛圍': state.vibe,
+      '音樂風格': state.genre,
+      '聲線偏好': state.voice,
+      '心底話': state.heartMessage,
+      '客戶電郵': state.email,
+      'email': state.email
+    };
+    fetch('https://formspree.io/f/mwvznjeq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    }).finally(() => showSuccess());
+  }
+
+  function showSuccess() {
+    for(let i=1;i<=TOTAL_STEPS;i++) {
+      const el = document.getElementById('step'+i);
+      if(el) el.style.display='none';
+    }
+    document.getElementById('stepSuccess').style.display='block';
+    document.getElementById('progressFill').style.width='100%';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>

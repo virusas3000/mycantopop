@@ -456,9 +456,10 @@
   }
 
   function submitForm() {
-    // Send to Formspree → mycantopophk@gmail.com
+    // Send to Formspree → cantopopforyou@gmail.com
     const payload = {
       '_subject': '🎵 新廣東歌訂單 — 廣東歌·為你',
+      '_to': 'cantopopforyou@gmail.com',
       '收禮人關係': state.recipient,
       '收禮人名字': state.recipientName,
       '特別之處': state.specialQualities,

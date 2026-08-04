@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove | 廣東歌·為你</title>
+  <meta name="description" content="電子鼓容易聽落死板。教你點樣用Swing Feel同人性化技巧令廣東歌嘅鼓組編程充滿Groove。" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:title" content="廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove">
+  <meta property="og:description" content="電子鼓容易聽落死板。教你點樣用Swing Feel同人性化技巧令廣東歌嘅鼓組編程充滿Groove。">
+  <meta property="og:url" content="https://mycantopop.hk/articles/cantopop-drum-programming-swing-feel.html">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantopop-drum-programming-swing-feel.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove", "description": "電子鼓容易聽落死板。教你點樣用Swing Feel同人性化技巧令廣東歌嘅鼓組編程充滿Groove。", "url": "https://mycantopop.hk/articles/cantopop-drum-programming-swing-feel.html", "publisher": {"@type": "Organization", "name": "廣東歌·為你", "url": "https://mycantopop.hk"}}</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove</p>
+  <h1 class="serif">廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove</h1>
+  <p class="meta">2026年08月04日 · 廣東歌·為你</p>
+  <p>音樂制作涵蓋作曲、編曲、錄音到混音嘅全過程。每個環節都需要專業知識同技巧。呢篇文章將會深入探討音樂制作嘅各個方面，幫助你喺廣東歌制作路上更進一步。</p>
+<h2>Swing Feel原理</h2>
+<p><strong>什麼是Swing。</strong>Swing係將均等嘅八分音符變成「長-短」嘅節奏——第一個八分音符佔2/3拍，第二個佔1/3拍。呢種微小嘅不均等令人感覺「有Groove」。廣東歌可以用50-60%嘅Swing量，60%以上會開始變成Jazz感。</p>
+<p><strong>Swing應用場景。</strong>唔係所有段落都適合Swing。主歌可以用輕Swing（50-55%）增加律動感，副歌可以轉回Straight增加力量。Ballad適合用Swing令節奏更鬆弛，快歌通常用Straight保持能量。</p>
+<p><strong>Hi-Hat嘅Swing。</strong>Swing最常應用喺Hi-Hat上面。將Hi-Hat嘅八分音符做Swing處理，而Kick同Snare保持Straight，可以制造出有層次嘅Groove。呢個係R&B同Hip-Hop常用嘅手法。</p>
+<h2>人性化處理</h2>
+<p><strong>Velocity變化。</strong>真人打鼓唔可能每一下力度一樣。編程鼓組嗰陣要為每個Hit設定不同嘅Velocity。一般規律係強拍力度大（100-127），弱拍力度細（60-90）。Ghost Notes（好輕嘅裝飾音）力度要喺40-60之間。</p>
+<p><strong>時間偏移。</strong>真人打鼓會有微小嘅時間誤差。可以將某啲Hit向前或者向後偏移5-15ms。Snare喺Backbeat位置稍微遲少少（+10ms）會令Groove更「肥」。Kick準時但Snare偏移係常見嘅Funk手法。</p>
+<p><strong>力度表情。</strong>一首歌嘅鼓組力度應該有動態變化。主歌力度中等，導歌逐漸加強，副歌力度最大。可以用Automation控制整體力度，再加上個別Hit嘅Velocity變化，制造真人演奏嘅感覺。</p>
+<h2>音色搭配</h2>
+<p><strong>多層次音色。</strong>每個鼓件用多個Sample疊加——例如Kick用一個低頻Sample加一個Click Sample，Snare用一個Body Sample加一個Crack Sample。呢種多層次令音色更豐富，接近真鼓嘅複雜感。</p>
+<p><strong>Room Sound。</strong>加入Room Mic嘅Ambience可以令電子鼓有空間感。可以用Convolution Reverb加入真實錄音室嘅Impulse Response。Room Sound嘅比例要適中，太多會令鼓組模糊。</p>
+<p><strong>量化程度。</strong>唔好將所有鼓點100%量化。可以對主架構（Kick同Snare）做90%量化，對Hi-Hat同裝飾音做50-70%量化。保留少少不準確反而令人感覺自然。</p>
+<div class="highlight-box">「音樂制作係科學同藝術嘅結合，兩者缺一不可。」— 廣東歌·為你創作團隊</div>
+<h2>常見問題解答</h2>
+<p><strong>Q: 音樂制作需要幾多投資？</strong><br>A: 入門級嘅家居錄音室大約HK$5000-10000，包括電腦、錄音介面、麥克風同DAW軟件。專業級嘅投資就冇上限。</p>
+<p><strong>Q: 自學定報課程好？</strong><br>A: 自學可以透過YouTube同網上資源入門。如果要深入學習，報專業課程可以更有系統咁學，同埋有導師指導。</p>
+<h2>總結</h2><p>廣東歌鼓組編程Swing Feel技巧：點樣令電子鼓聽落有人性化Groove係廣東歌創作路上重要嘅一環。無論你係想提升個人技巧，定係希望將作品推向更廣闊嘅舞台，持續學習同實踐都係不可或缺嘅。廣東歌嘅魅力在於佢嘅地道同真摯，保持對音樂嘅熱愛，你一定可以寫出打動人心嘅作品。</p>
+<div class="cta-box"><h3 class="serif">想將你嘅故事變成一首廣東歌？</h3><p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p><a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a></div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>

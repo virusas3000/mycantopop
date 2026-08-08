@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓 | 廣東歌·為你</title>
+  <meta name="description" content="電子鼓最怕聽落死板。教你用Velocity變化同Swing設定，令MIDI鼓組聽落似真人打緊。" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:title" content="廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓">
+  <meta property="og:description" content="電子鼓最怕聽落死板。教你用Velocity變化同Swing設定，令MIDI鼓組聽落似真人打緊。">
+  <meta property="og:url" content="https://mycantopop.hk/articles/cantopop-drum-programming-humanize-velocity-swing.html">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantopop-drum-programming-humanize-velocity-swing.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓", "description": "電子鼓最怕聽落死板。教你用Velocity變化同Swing設定，令MIDI鼓組聽落似真人打緊。", "url": "https://mycantopop.hk/articles/cantopop-drum-programming-humanize-velocity-swing.html", "publisher": {"@type": "Organization", "name": "廣東歌·為你", "url": "https://mycantopop.hk"}}</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓</p>
+  <h1 class="serif">廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓</h1>
+  <p class="meta">2026年08月08日 · 廣東歌·為你</p>
+  <p>電子鼓最怕聽落死板。教你用Velocity變化同Swing設定，令MIDI鼓組聽落似真人打緊。</p>
+<h2>電子鼓點解聽落死板</h2>
+<p>MIDI鼓組如果每個音符嘅Velocity（力度）都一樣，聽落會好死板——因為真人打鼓每一下嘅力度都唔同。而且如果所有音符都完美對齊拍子，會缺少真人打鼓嘅微妙「推前滯後」感。呢兩個因素令MIDI鼓聽落「機械化」，缺乏人味。</p>
+<p>要解決呢個問題，需要做兩件事：一係加入Velocity變化，模擬真人打鼓嘅力度差異；二係加入微妙嘅時間偏移，模擬真人打鼓嘅節奏不準確性。呢個過程叫「Humanize」（人性化）。</p>
+<h2>Velocity變化技巧</h2>
+<p>真人打鼓嘅力度有自然規律：每拍嘅正拍（downbeat）力度最大，反拍（upbeat）力度較細。Hi-hat通常用細力度，Snare同Kick用大力度。所以編程時要根據呢個規律設定Velocity——Kick同Snare嘅正拍Velocity設100-110，Hi-hat設60-80，Ghost Notes設30-50。</p>
+<p>另一個技巧係「手動微調」——唔好用DAW嘅自動Humanize功能，因為佢嘅隨機性太機械化。最好逐個音符手動調整Velocity，每個音符嘅力度都略有唔同。例如一串Hi-hat音符嘅Velocity可以係72, 68, 75, 70, 73, 67, 74, 71——睇落隨機，但有自然變化。</p>
+<h2>Swing同時間偏移</h2>
+<p>Swing（搖擺感）係將反拍稍微推後，做成「長-短」嘅節奏感。標準Swing值大約係55-65%（50%係直拍，100%係完全Swing）。廣東歌通常用輕微Swing（55-58%），令節奏有少少「郁動感」但唔會太過Jazz化。R&B風格嘅廣東歌可以加大Swing到60-65%。</p>
+<p>時間偏移方面，可以將某啲音符稍微推前或推後幾個ms。例如將Snare稍微推後5-10ms，聽落會更「懶」更有人味。但唔好推得太多——如果超過20ms，會聽落好似「甩拍」。用DAW嘅Humanize功能將時間偏移設定為±5ms就夠。</p>
+<h2>進階技巧</h2>
+<p>一個好有效嘅技巧係「用真鼓片段疊加」。就算你用MIDI鼓做主要節奏，如果疊加一層真鼓嘅Room mic片段（可以用免費Sample Pack），成個鼓組即刻有「真人感」。真鼓片段嘅自然Reverb同Mic Bleed係MIDI做唔到嘅。</p>
+<p>另一個技巧係「Groove Template」——搵一段你鍾意嘅真人鼓節奏，將佢嘅Velocity同時間資料提取出嚟，套用喺你嘅MIDI鼓上面。呢個方法可以令你嘅MIDI鼓有特定鼓手嘅「手感」。好多DAW都有呢個功能，如Logic Pro嘅Groove Track。</p>
+  <div class="highlight-box">「發行唔係終點，而係推廣嘅起點。」— 廣東歌·為你創作團隊</div>
+  <h2>總結</h2><p>廣東歌鼓組編程人性化技巧：Velocity同Swing點樣令電子鼓似真鼓係廣東歌創作路上重要嘅一環。無論你係想提升個人技巧，定係希望將作品推向更廣闊嘅舞台，持續學習同實踐都係不可或缺嘅。廣東歌嘅魅力在於佢嘅地道同真摯，保持對音樂嘅熱愛，你一定可以寫出打動人心嘅作品。</p>
+  <div class="cta-box"><h3 class="serif">想將你嘅故事變成一首廣東歌？</h3><p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p><a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a></div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>

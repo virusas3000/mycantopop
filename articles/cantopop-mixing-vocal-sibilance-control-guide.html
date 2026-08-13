@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌混音人聲嘶音控制指南：De-esser之外仲有咩方法處理齒音 | 廣東歌·為你</title>
+  <meta name="description" content="廣東歌混音嘶音控制教學，De-esser之外嘅齒音處理方法。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="廣東歌混音人聲嘶音控制指南：De-esser之外仲有咩方法處理齒音">
+  <meta property="og:description" content="廣東歌混音嘶音控制教學，De-esser之外嘅齒音處理方法。">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:url" content="https://mycantopop.hk/articles/cantopop-mixing-vocal-sibilance-control-guide.html">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantopop-mixing-vocal-sibilance-control-guide.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--fg); }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"廣東歌混音人聲嘶音控制指南：De-esser之外仲有咩方法處理齒音","description":"廣東歌混音嘶音控制教學，De-esser之外嘅齒音處理方法。","url":"https://mycantopop.hk/articles/cantopop-mixing-vocal-sibilance-control-guide.html","datePublished":"2026-08-13","publisher":{"@type":"Organization","name":"廣東歌·為你","url":"https://mycantopop.hk"}}
+  </script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a><div class="nav-links"><a href="/">首頁</a><a href="/create.html">立即訂製</a></div></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 廣東歌混音人聲嘶音控制指南：De-esser之外仲有咩方法處理齒音</p>
+  <h1 class="serif">廣東歌混音人聲嘶音控制指南：De-esser之外仲有咩方法處理齒音</h1>
+  <p class="meta">2026年08月13日 · 廣東歌·為你</p>
+
+  <h2>乜嘢係嘶音問題</h2>
+
+  <p>嘶音（Sibilance）係指人聲發出「s」「sh」「ch」等音時產生嘅高頻爆破聲。粵語歌詞入面，含有「詩」「思」「時」「事」「是」等字嘅頻率特別高，呢啲字嘅齒音喺錄音時往往會被麥克風放大，成為混音時嘅一大難題。如果唔處理，聽眾戴耳機聽歌時會感到刺耳甚至疼痛。</p>
+
+  <h2>De-esser嘅基本用法</h2>
+
+  <p>De-esser係專門用嚟處理嘶音嘅動態處理器，佢會喺偵測到特定頻率範圍嘅音量超過閾值時自動衰減。一般嚟講，粵語人聲嘅嘶音集中喺5kHz至9kHz之間。設置De-esser時要先搵出最嘈嘅頻率點，然後設定適當嘅閾值同衰減量。建議用窄頻段處理，避免影響人聲整體嘅亮度。</p>
+
+  <h2>De-esser之外嘅處理方法</h2>
+
+  <p>單靠De-esser有時未必夠用。第一，可以喺EQ階段提前用動態EQ處理。動態EQ可以喺特定頻段做動態衰減，比De-esser更精準。第二，可以用clipper或limiter針對高頻峰值做硬限制，但要注意唔好過度。第三，喺錄音階段就已經可以減少嘶音——用防噴罩、調整麥克風角度令佢稍微偏離嘴部正前方，都可以有效減少齒音嘅拾取。</p>
+
+  <h2>分段處理嘶音</h2>
+
+  <p>唔係每句歌詞嘅嘶音問題都一樣。有啲句子包含特別多齒音字，有啲句子就幾乎冇。所以更精細嘅做法係用自動化（Automation）逐段調整De-esser嘅參數，甚至對特別嚴重嘅字做手動音量衰減。雖然費時，但效果係最自然嘅。另外，可以考慮將嘶音特別嚴重嘅段落複製到另一條音軌做獨立處理，然後混返入去。</p>
+
+  <h2>嘶音同清晰度嘅平衡</h2>
+
+  <p>過度處理嘶音會令人聲聽落「口齒不清」，失去粵語歌詞嘅咬字清晰度。呢個係一個需要反覆試聽嘅平衡過程。建議嘅做法係：先用De-esser做基本處理，然後喺不同嘅播放設備上試聽——耳機、喇叭、汽車音響——確保嘶音唔刺耳但歌詞仍然清晰。記住，處理嘶音嘅目標係令聆聽體驗更舒適，而唔係完全消除齒音。</p>
+
+  <h2>粵語特殊考慮</h2>
+
+  <p>粵語嘅九聲六調令到同一個字喺唔同聲調下嘅齒音強度都唔同。例如陰平聲嘅「詩」同陽平聲嘅「時」，雖然聲母一樣，但因為音高唔同，產生嘅嘶音頻率都有差異。所以處理粵語人聲嘶音時，可能需要針對唔同聲調做微調，而唔係一個設定用到底。</p>
+
+  <div class="highlight-box">「處理嘶音嘅目標係令聆聽更舒適，唔係消除齒音本身。」— 廣東歌·為你創作團隊</div>
+
+  <h2>常見問題</h2>
+
+  <p><strong>De-esser應該放喺混音鏈嘅邊個位置？</strong> 通常放喺壓縮器之後、EQ之前或之後都可以。建議先做基本EQ再De-esser，最後再做壓縮。唔同排列會有唔同效果，值得逐種試。</p>
+
+  <p><strong>點樣搵出嘶音嘅確切頻率？</strong> 用EQ插件做窄頻段增益掃描，將一個窄Q值嘅頻段提升10dB左右，由4kHz掃到12kHz，聽到最刺耳嘅位置就係嘶音頻率。</p>
+
+  <p><strong>用動態EQ定De-esser好？</strong> De-esser操作簡單但較粗糙，動態EQ更精準但需要更多調整。如果嘶音問題嚴重，建議兩者配合使用：先用De-esser做粗略處理，再用動態EQ做精細微調。</p>
+
+  <div class="cta-box">
+    <h3 class="serif">想將你嘅故事寫成廣東歌？</h3>
+    <p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p>
+    <a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a>
+  </div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>

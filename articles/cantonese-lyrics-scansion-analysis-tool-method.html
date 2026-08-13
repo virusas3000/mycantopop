@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>粵語歌詞格律分析工具方法：點樣用Scansion檢查填詞聲調匹配 | 廣東歌·為你</title>
+  <meta name="description" content="粵語歌詞格律Scansion分析方法，檢查填詞聲調匹配度。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="粵語歌詞格律分析工具方法：點樣用Scansion檢查填詞聲調匹配">
+  <meta property="og:description" content="粵語歌詞格律Scansion分析方法，檢查填詞聲調匹配度。">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:url" content="https://mycantopop.hk/articles/cantonese-lyrics-scansion-analysis-tool-method.html">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantonese-lyrics-scansion-analysis-tool-method.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--fg); }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"粵語歌詞格律分析工具方法：點樣用Scansion檢查填詞聲調匹配","description":"粵語歌詞格律Scansion分析方法，檢查填詞聲調匹配度。","url":"https://mycantopop.hk/articles/cantonese-lyrics-scansion-analysis-tool-method.html","datePublished":"2026-08-13","publisher":{"@type":"Organization","name":"廣東歌·為你","url":"https://mycantopop.hk"}}
+  </script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a><div class="nav-links"><a href="/">首頁</a><a href="/create.html">立即訂製</a></div></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 粵語歌詞格律分析工具方法：點樣用Scansion檢查填詞聲調匹配</p>
+  <h1 class="serif">粵語歌詞格律分析工具方法：點樣用Scansion檢查填詞聲調匹配</h1>
+  <p class="meta">2026年08月13日 · 廣東歌·為你</p>
+
+  <h2>乜嘢係Scansion</h2>
+
+  <p>Scansion係西方詩歌分析嘅一種方法，用嚟標記詩句嘅節奏結構同重音分佈。雖然佢源自英文詩歌分析，但呢套分析方法其實可以應用到粵語歌詞上面。粵語歌詞嘅每個字都有固定嘅聲調，呢啲聲調本身就有音高嘅高低起伏，同西方詩歌嘅重音節奏有異曲同工之妙。</p>
+
+  <h2>點樣將Scansion應用到粵語歌詞</h2>
+
+  <p>首先，將歌詞逐字標記聲調。粵語九聲可以用數字1至9標記，或者用高、中、低三個層次來分類。然後，將標記好嘅聲調同旋律嘅音高走向做對比。如果聲調嘅自然音高同旋律走向一致，就係「順字」；如果相反，就係「倒字」，即係唱出嚟會令人聽唔明原本嘅字。用Scansion可以系統性地檢查成首歌詞有冇倒字問題。</p>
+
+  <h2>Scansion嘅實際操作步驟</h2>
+
+  <p>第一步，將歌詞寫低，每個字旁邊標上聲調編號。第二步，聽住旋律，將每個音嘅實際音高用箭頭表示——向上、向下、平。第三步，對比聲調同旋律：陰平（高平）對應高音、陽平（低平）對應低音、上聲對應上升旋律、去聲對應下降旋律。第四步，搵出所有唔匹配嘅位置，考慮改字或者調整旋律。</p>
+
+  <h2>用Scansion改善歌詞節奏</h2>
+
+  <p>除咗檢查聲調匹配，Scansion仲可以用嚟分析歌詞嘅節奏密度。粵語每個字嘅時值長短會影響聽感。如果一段歌詞入面連續多個字都係短音，聽落會好急促；如果太多長音，就會好拖。用Scansion標記每個字嘅時值，可以令你一目了然睇到節奏分佈係咪均衡，然後做出調整。</p>
+
+  <h2>工具輔助Scansion分析</h2>
+
+  <p>而家仲有啲工具可以輔助Scansion分析。例如可以用粵語拼音轉換工具先標出每個字嘅聲調，再用DAW嘅MIDI編輯器對照旋律音高。有啲填詞人會用Excel表格將歌詞、聲調、旋律音高並列顯示，方便逐格檢查。雖然呢啲方法睇落好工程化，但對於初學者嚟講，係一個非常有效嘅學習方式。</p>
+
+  <h2>Scansion嘅局限同靈活運用</h2>
+
+  <p>Scansion唔係萬能嘅。有時候為咗情感表達需要，故意倒字係可以接受嘅——好多經典廣東歌都有輕微倒字但效果反而更好。關鍵係要明白自己點解咁做，而唔係因為唔覺意。另外，粵語嘅連讀變調會令實際發音同單字聲調有出入，Scansion分析時要考慮呢個因素。總括嚟講，Scansion係一個有用嘅檢查工具，但最終判斷仲是要靠耳朵同埋感覺。</p>
+
+  <div class="highlight-box">「Scansion係你嘅檢查工具，但最終判斷要靠你嘅耳朵。」— 廣東歌·為你創作團隊</div>
+
+  <h2>常見問題</h2>
+
+  <p><strong>Scansion一定要逐字分析嗎？</strong> 初學者建議逐字分析，熟練之後可以逐句快速判斷。重點唔係每個字都完美匹配，而係確保關鍵字唔會嚴重倒字影響理解。</p>
+
+  <p><strong>有冇自動化嘅Scansion工具？</strong> 目前冇專門針對粵語歌詞嘅Scansion工具，但可以用粵語拼音轉換工具標出聲調，再手動對照旋律。有啲DAW插件可以顯示音高，配合使用都好方便。</p>
+
+  <p><strong>倒字一定唔好嗎？</strong> 唔一定。有時為咗情感需要，輕微倒字反而更有感染力。好多經典廣東歌都有倒字但效果出色。關鍵係要意識到呢點，而唔係唔覺意倒字。</p>
+
+  <div class="cta-box">
+    <h3 class="serif">想將你嘅故事寫成廣東歌？</h3>
+    <p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p>
+    <a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a>
+  </div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>

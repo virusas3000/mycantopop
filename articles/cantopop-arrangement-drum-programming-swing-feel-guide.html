@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌編曲鼓組編程Swing律動感指南：點樣用MIDI鼓整出人性化節奏 | 廣東歌·為你</title>
+  <meta name="description" content="鼓組編程Swing律動感編曲指南。教你用MIDI鼓整出人性化廣東歌節奏。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:title" content="廣東歌編曲鼓組編程Swing律動感指南：點樣用MIDI鼓整出人性化節奏">
+  <meta property="og:description" content="鼓組編程Swing律動感編曲指南。教你用MIDI鼓整出人性化廣東歌節奏。">
+  <meta property="og:url" content="https://mycantopop.hk/articles/cantopop-arrangement-drum-programming-swing-feel-guide.html">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantopop-arrangement-drum-programming-swing-feel-guide.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":'廣東歌編曲鼓組編程Swing律動感指南：點樣用MIDI鼓整出人性化節奏',"description":'鼓組編程Swing律動感編曲指南。教你用MIDI鼓整出人性化廣東歌節奏。',"url":"https://mycantopop.hk/articles/cantopop-arrangement-drum-programming-swing-feel-guide.html","publisher":{"@type":"Organization","name":"廣東歌·為你","url":"https://mycantopop.hk"}}
+  </script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 廣東歌編曲鼓組編程Swing律動感指南：點樣用MIDI鼓整出人性化節奏</p>
+  <h1 class="serif">廣東歌編曲鼓組編程Swing律動感指南：點樣用MIDI鼓整出人性化節奏</h1>
+  <p class="meta">2026年 · 廣東歌·為你</p>
+
+  <p>廣東歌係香港人嘅集體回憶，亦係呢座城市最動人嘅聲音。無論你係想學寫歌詞、學作曲，定係希望深入了解歌曲制作嘅每一個環節，呢篇文章都會為你提供實用嘅指引同心得。</p>
+
+  <h2>乜嘢係Swing律動感</h2>
+  <p>Swing係一種節奏感嘅描述——喺直拍（Straight）入面，八分音符係均等嘅（50:50），但喺Swing入面，八分音符變成長短不一（大約66:34），令節奏有一種「搖擺」嘅感覺。廣東歌雖然唔係爵士樂，但適度嘅Swing可以令鼓組聽起嚟更人性化、更放鬆。好多經典廣東歌嘅鼓組都有微妙嘅Swing感，只係聽眾未必察覺到。</p>
+  <h2>MIDI鼓整出Swing嘅方法</h2>
+  <p>喺DAW入面整Swing有好幾個方法。第一個方法係用DAW嘅量化功能——大部分DAW都有Swing量化選項，通常以百分比表示（例如60% Swing）。將你打嘅MIDI鼓用Swing量化，就可以即刻得到Swing感。第二個方法係手動調整——喺 piano roll入面，將每個反拍嘅八分音符微微向右移（延遲10-30ms），令佢唔係完美對準正拍。第三個方法係用Swing預設——好多鼓機插件（例如EZdrummer、Addictive Drums）內置咗唔同程度嘅Swing預設。</p>
+  <h2>Swing幅度嘅選擇</h2>
+  <p>Swing嘅幅度要因應歌曲風格而定。對於廣東歌嘅慢板情歌，輕微嘅Swing（55-58%）已經足夠，目的只係令鼓聽起嚟冇咁機械化。對於中板嘅R&amp;B風格廣東歌，中等Swing（60-65%）可以增加律動感。對於快板嘅搖擺風格廣東歌，較大嘅Swing（66-72%）可以營造出明顯嘅搖擺感。記住，Swing越大，節奏感越「鬆」，但太鬆會聽起嚟唔整齊。對於廣東歌嚟講，通常55-62%嘅Swing係最自然嘅範圍。</p>
+  <h2>人性化鼓組嘅其他技巧</h2>
+  <p>除咗Swing，仲有幾個技巧可以令MIDI鼓聽起嚟更人性化。第一係「力度變化」——唔好將每個音符嘅力度都設成一樣，應該根據音樂嘅強弱做變化，例如軍鼓嘅accent同ghost note要有明顯嘅力度差異。第二係「微調時間」——即使已經Swing，每個音符都可以有±5ms嘅隨機偏移，模擬鼓手嘅微小誤差。第三係「唔完美嘅完美」——真實鼓手唔會每拍都完美對齊，適當嘅「推前」同「拉後」可以令鼓聽起嚟更有「感覺」。呢啲技巧加埋一齊，MIDI鼓就可以聽起嚟同真實鼓手冇分別。</p>
+
+  <div class="highlight-box">「寫廣東歌最緊要係用真心。你寫嘅每一句，都應該係你自己會講嘅話。」— 廣東歌·為你創作團隊</div>
+
+  <div class="cta-box">
+    <h3 class="serif">想將你嘅故事寫成廣東歌？</h3>
+    <p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p>
+    <a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a>
+  </div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>

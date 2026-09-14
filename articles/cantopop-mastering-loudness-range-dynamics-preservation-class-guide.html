@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廣東歌母帶處理響度範圍動態保留指南：點樣喺響度同動態之間取得平衡 | 廣東歌·為你</title>
+  <meta name="description" content="響度範圍動態保留母帶處理指南。教你喺廣東歌母帶處理中喺響度同動態之間取得最佳平衡，保留音樂呼吸感。">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="廣東歌·為你">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:title" content="廣東歌母帶處理響度範圍動態保留指南：點樣喺響度同動態之間取得平衡">
+  <meta property="og:description" content="響度範圍動態保留母帶處理指南。教你喺廣東歌母帶處理中喺響度同動態之間取得最佳平衡，保留音樂呼吸感。">
+  <link rel="canonical" href="https://mycantopop.hk/articles/cantopop-mastering-loudness-range-dynamics-preservation-class-guide.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Serif+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0d0b; --card: #1a1714; --card2: #211e1a; --border: #2e2926;
+      --primary: hsl(340, 45%, 55%); --primary-light: hsl(340, 45%, 65%);
+      --fg: #f5f0eb; --muted: #8a7f74; --accent: #c9a96e;
+    }
+    body { background: var(--bg); color: var(--fg); font-family: 'Inter','Noto Serif TC',sans-serif; line-height: 1.8; }
+    .serif { font-family: 'Playfair Display','Noto Serif TC',serif; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    .logo-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-text { font-family: 'Playfair Display',serif; font-size: 18px; font-weight: 700; }
+    main { max-width: 760px; margin: 0 auto; padding: 100px 24px 80px; }
+    .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+    .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--primary); }
+    h1 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.25; margin-bottom: 16px; }
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 36px; }
+    h2 { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 1.4rem; margin: 36px 0 12px; color: var(--fg); }
+    p { margin-bottom: 16px; color: var(--fg); }
+    .highlight-box { background: rgba(176,83,110,0.08); border-left: 3px solid var(--primary); padding: 16px 20px; border-radius: 0 12px 12px 0; margin: 24px 0; font-style: italic; }
+    .cta-box { background: var(--card2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; margin-top: 48px; }
+    .cta-box h3 { font-family: 'Playfair Display',serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--muted); margin-bottom: 20px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: #fff; border-radius: 999px; padding: 14px 32px; font-size: 1rem; font-weight: 600; text-decoration: none; }
+    .btn:hover { background: var(--primary-light); }
+    footer { background: var(--card); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--fg); }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"廣東歌母帶處理響度範圍動態保留指南：點樣喺響度同動態之間取得平衡","description":"響度範圍動態保留母帶處理指南。教你喺廣東歌母帶處理中喺響度同動態之間取得最佳平衡，保留音樂呼吸感。","url":"https://mycantopop.hk/articles/cantopop-mastering-loudness-range-dynamics-preservation-class-guide.html","publisher":{"@type":"Organization","name":"廣東歌·為你","url":"https://mycantopop.hk"}}
+  </script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo"><div class="logo-icon">🎵</div><div><div class="logo-text">廣東歌·為你</div></div></a></div></nav>
+<main>
+  <p class="breadcrumb"><a href="/">首頁</a> › <a href="/articles">文章</a> › 廣東歌母帶處理響度範圍動態保留指南：點樣喺響度同動態之間取得平衡</p>
+  <h1 class="serif">廣東歌母帶處理響度範圍動態保留指南：點樣喺響度同動態之間取得平衡</h1>
+  <p class="meta">2026年09月14日 · 廣東歌·為你</p>
+
+  <p>響度戰爭（loudness war）已經持續咗好多年，好多歌曲為咗聽起嚟更響而不斷壓縮動態，結果令音樂失去咗呼吸感。喺廣東歌母帶處理中，響度同動態之間嘅平衡係一個永恆嘅課題。太響會令歌曲疲勞，太動態又會令歌曲喺串流平台上聽起嚟太細聲。</p>
+
+  <h2>基礎概念同原理</h2>
+  <p>要掌握呢項技巧，首先要理解佢嘅基本原理。廣東歌嘅創作唔同於普通流行曲，因為粵語有九聲六調，填詞作曲都要考慮聲調同旋律嘅配合。每一個聲調都有固定嘅音高傾向，如果聲調同旋律衝突，唱出嚟就會出現「倒字」現象，聽眾就聽唔清楚歌詞內容。</p>
+  <p>所以，喺創作過程中，我哋需要不斷調整文字同旋律嘅關係，確保兩者能夠完美配合。呢個過程雖然複雜，但正正係廣東歌創作嘅魅力所在——當你成功將粵語聲調同旋律融為一體嗰陣，嗰種滿足感係無可比擬嘅。</p>
+
+  <h2>實際操作步驟</h2>
+  <p>喺實際創作中，有以下幾個重要步驟需要注意。第一步係<strong>確立主題同情感方向</strong>。每首廣東歌都應該有一個清晰嘅情感核心，無論係愛情、親情、友情定係社會關懷，都要有一個明確嘅主題作為創作嘅指南針。</p>
+  <p>第二步係<strong>構建旋律框架</strong>。先寫出基本嘅和弦進行，然後喺和弦基礎上哼出旋律。唔好一開始就追求完美，先寫出一個粗略嘅旋律線，之後再慢慢打磨。好多出色嘅廣東歌旋律都係經過反覆修改先至成型嘅。</p>
+  <p>第三步係<strong>填詞同聲調調整</strong>。將文字填入旋律時，要注意每個字嘅聲調同旋律音高嘅配合。如果發現有「倒字」情況，可以嘗試換同義詞，或者微調旋律音高嚟遷就聲調。呢個過程需要耐心，但係好值得。</p>
+
+  <h2>進階技巧同注意事項</h2>
+  <p>當你掌握咗基礎之後，可以開始探索更多進階技巧。例如，喺編曲中加入唔同嘅樂器質感，可以大幅改變歌曲嘅氛圍。弦樂可以增加古典優雅感，電子合成器可以帶嚟現代感，而傳統中式樂器如古箏、二胡則可以為廣東歌增添獨特嘅東方色彩。</p>
+  <p>另外，錄音同混音嘅質素都直接影響最終成品嘅效果。即使你嘅作曲同填詞再好，如果錄音質素差，聽眾都好難感受到歌曲嘅魅力。所以投資一套基本嘅錄音設備——USB麥克風、錄音介面、吸音板——係好值得嘅。</p>
+  <p>混音方面，人聲永遠係廣東歌嘅焦點。確保人聲清晰、靠前，伴奏適度鋪底。適量嘅 reverb 同 delay 可以增加空間感，但切忌過度使用，否則會令人聲模糊不清。壓縮器（compressor）可以幫助控制人聲嘅動態範圍，等大聲同細聲嘅部分更加平衡。</p>
+
+  <div class="highlight-box">「廣東歌創作最緊要係堅持。第一首可能唔完美，但每一首都會令你進步。繼續寫，繼續改，總有一日你會寫出感動人心嘅作品。」— 廣東歌·為你創作團隊</div>
+
+  <h2>常見問題</h2>
+  <p><strong>初學者應該由作曲開始定填詞開始？</strong> 建議先由作曲開始，因為旋律係歌曲嘅骨架。寫好旋律之後再填詞，會更容易控制聲調同節奏嘅配合。當然，如果你文字功底好，都可以先寫詞再搵人作曲。</p>
+  <p><strong>屋企錄音需要注意咩？</strong> 最重要係環境噪音控制。揀一個安靜嘅房間，盡量減少回聲同反射。可以用吸音棉或者厚窗簾嚟改善錄音環境。錄音時同麥克風保持適當距離（約15-20厘米），用防噴罩減少爆破音。</p>
+  <p><strong>獨立發行廣東歌有咩渠道？</strong> 而家有很多數碼發行平台可以選擇，例如 DistroKid、TuneCore 等，佢哋可以幫你將歌曲上架到 Spotify、Apple Music 等主流串流平台。另外，Bandcamp 同 SoundCloud 都係獨立音樂人嘅好選擇。</p>
+
+  <div class="cta-box">
+    <h3 class="serif">想將你嘅故事寫成廣東歌？</h3>
+    <p>我哋嘅專業團隊可以為你度身訂製一首獨一無二嘅廣東歌，由填詞、作曲到錄音一站式完成。</p>
+    <a href="/create.html" class="btn">🎵 立即訂製你嘅專屬廣東歌</a>
+  </div>
+</main>
+<footer>© 2025 廣東歌·為你 · <a href="/">首頁</a> · <a href="/articles">文章</a></footer>
+</body>
+</html>
